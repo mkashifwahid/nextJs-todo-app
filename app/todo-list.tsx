@@ -1,10 +1,16 @@
+'use client';
+import { useContext } from 'react';
+import TodoContext from './TodoContext';
+
 export default function TodoList() {
+  const value = useContext(TodoContext);
+  console.log('todo list again', value);
   return (
     <div>
       <ul>
-        <li>Todo 1</li>
-        <li>Todo 2</li>
-        <li>Todo 3</li>
+        {value.map((todo) => (
+          <li key={todo}>{todo}</li>
+        ))}
       </ul>
     </div>
   );
