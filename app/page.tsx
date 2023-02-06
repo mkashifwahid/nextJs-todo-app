@@ -2,6 +2,7 @@
 // import { Inter } from '@next/font/google';
 // import styles from './page.module.css'
 'use client';
+import { useState } from 'react';
 import AddTodo from './Add-Todo';
 import TodoList from './Todo-List';
 import TodoContext from './TodoContext';
@@ -10,8 +11,10 @@ import TodoContext from './TodoContext';
 
 export default function Home() {
   return (
+    // <TodoContext.Provider value={['']}>
     <div>
       <AddTodo />
     </div>
+    // </TodoContext.Provider>
   );
 }

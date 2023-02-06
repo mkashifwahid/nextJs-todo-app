@@ -1,6 +1,6 @@
 'use client';
 import { createContext } from 'react';
 
-const TodoContext = createContext(['ali']);
+const TodoContext = createContext([{ todo: '', completed: false }]);
 
 export default TodoContext;

@@ -5,22 +5,21 @@ import TodoContext from './TodoContext';
 
 export default function AddTodo() {
   let [todo, setTodo] = useState('');
-  let [todos, setTodos] = useState(['']);
-
-  //todos = useContext(TodoContext);
+  let todos = useContext(TodoContext);
+  let [allTodos, setAllTodos] = useState([{ todo: '', completed: false }]);
 
   const clickHandler = () => {
-    todos.push(todo);
-    setTodos(todos);
+    todos = [...allTodos, { todo: todo, completed: false }];
+    setAllTodos(todos);
   };
 
   return (
-    <TodoContext.Provider value={todos}>
+    <TodoContext.Provider value={allTodos}>
       <div>
         <input type="text" onChange={(e) => setTodo(e.target.value)} />
         <button onClick={clickHandler}>Add</button>
+        <TodoList />
       </div>
-      <TodoList />
     </TodoContext.Provider>
   );
 }

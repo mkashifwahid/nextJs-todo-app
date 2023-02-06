@@ -5,13 +5,21 @@ import TodoContext from './TodoContext';
 export default function TodoList() {
   const value = useContext(TodoContext);
   console.log('todo list again', value);
+  const taskCheckChanged = () => {};
+
   return (
     <div>
-      <ul>
-        {value.map((todo) => (
-          <li key={todo}>{todo}</li>
-        ))}
-      </ul>
+      {value.map((todo) => (
+        <tr key={todo.todo}>
+          <td>{todo.todo}</td>
+          <td>
+            <input type="checkbox" onClick={taskCheckChanged} />
+          </td>
+          <td>
+            <button>Delete</button>
+          </td>
+        </tr>
+      ))}
     </div>
   );
 }
